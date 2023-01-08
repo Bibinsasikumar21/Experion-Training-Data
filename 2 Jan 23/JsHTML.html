@@ -1,0 +1,121 @@
+<!-- java script in  html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = 'a message from JS';
+        console.log(data);
+        console.log("Hello");
+    </script>
+
+<!-- multiple script tags are possible  -->
+<!-- data in one script tag can be accessed in another script tag -->
+<!-- write script tags in the body. including it in the head tag will increses the loading time -->
+<!-- even there is error in the first script tag, 2nd script tag will execute -->
+<!-- error in the first script tag will cause an error to the statemnt within the nested tag -->
+
+<script>
+    let data1 = 'a message from JS';
+    console.log(data1);
+    console.log("Hello");
+     
+    var data2 = {
+        message: 'hello world',
+        language: 'English'
+
+    }
+    console.log(data2);
+    console.table(data2);
+    console.table(['one', 'two', 'three']);
+    console.info('login was successful');
+    console.warn('password is weak');
+    console.error('an error occured'); 
+
+    // alert will shows an alert message
+    // should not use multiple alert messages, coz browser will block the alert after several times
+
+    alert('please enter a valid name');
+    // prompt is used to get an input from the user
+    prompt('type your name');
+
+    // confirm tag will shows you a pop up msg with 2 button- ok and cancel
+    // option variable will either be true or false as its  value
+    // clicking ok will initialize the variable with true, cancel => false
+    let option = confirm('do you want to log out?');
+    console.log(option);
+    if(option){
+        console.log('logged out successfully');
+    }
+    else{
+        console.log('logout failed');
+    }
+    
+
+</script>
+
+<!-- *************************************************************************** -->
+<p id="p1"> default content</p>
+<p id="js">Java Script</p>
+<script>
+    const element = document.getElementById('p1');
+    element.style.color = 'red';
+    var js1 = document.getElementById('js');
+    js1.style.color = 'blue';
+
+    console.log(element);
+    console.log(element.innerText);
+    document.write('<h1> hello world </h1>');
+</script>
+
+<!-- *************************************************************************** -->
+<p id="para"> This is para 1</p>
+<script>
+    let e = document.getElementById('para');
+    e.style.color = 'violet';
+    e.style.fontSize = '30px';
+    e.style.fontWeight = 'bold';
+    e.style.textAlign = 'center';
+</script>
+<!-- ****************************** EVENT **************************************** -->
+
+<button onclick = 'handleClick(event)'>click me</button>
+<button onclick = 'handleClick(event)'>click me</button>
+<p onclick = 'handleClick(event)'>paragraph</p>
+<script>
+    function handleClick(e){
+        console.log(e);
+        e.target.innerText = 'Clicked';
+        e.target.style.color = 'green';
+        console.log('button clicked');
+        alert('clicked the button');
+    }
+</script>
+<!-- ********************************************************************* -->
+<p> first paragraph </p>
+<p> second paragraph </p>
+<input type="checkbox"  id="check1">Select this <br>
+<input type="text"  id="test1" value="cnfdkvnd">
+
+
+<script>
+    document.getElementById('check1').setAttribute('checked', 'checked');
+    document.getElementById('test1').setAttribute('value', 'Me@example.com');
+    let res = document.getElementById('check1').getAttribute('type');
+    document.write(res);
+    var a = document.getElementsByTagName('p');
+    for( let i = 0; i < a.length; i++){
+        const elem = a[i];
+        elem.innerText = 'new Text';
+        elem.remove();
+
+    }
+</script>
+
+</body>
+</html>

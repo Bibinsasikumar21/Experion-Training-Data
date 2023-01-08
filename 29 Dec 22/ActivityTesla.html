@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            overflow-y: hidden;
+            
+        }
+        .container{
+            height: 100vh;
+            width: 100%;
+            margin: 0;
+            
+        }
+        /* navigation bar features */
+        .nav-bar{
+            height: 10%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            
+        }
+        /* features of logo of tesla */
+        .tesla-logo{
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        /* features of the items in center of the navigation bar */
+        .nav-center-items{
+            color: white;
+            display: flex;
+            width: 45%;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 100px;
+            
+        }
+    
+        .models{
+            display: flex;
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+        /* features of items in the right portion of navigation bar */
+        .r-items{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 250%;
+            color: white;
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .nav-right-items{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            margin-left: 150px;
+        }
+        .main-container{
+            height:  570px;
+            width: 100%;
+            background-image: url(../IMAGES/tesla-car.jpg);
+            background-size: cover;  
+            margin-bottom: 0;   
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .model-3{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 20%;
+            width: 30%;
+            margin-bottom: 120px; 
+            padding-bottom: 50px;
+               }
+        .model-3-font{
+            color: rgb(35, 160, 244);
+            font-size: 40px;
+            letter-spacing: 4px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .order{
+            color: rgb(70, 110, 241);
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        /* button features */
+        .bottons{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 110px;
+            height: 100px;
+            width: 500px;
+
+        }
+        .custom-order{
+            color: white;
+            height: 50px;
+            width: 170px;
+            background-color: rgb(184, 64, 28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .existing-inventory{
+            color: white;
+            height: 50px;
+            width: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(184, 64, 28);
+
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- navigation bar -->
+        <div class="nav-bar">
+            <div class="tesla-logo"> <img src="../IMAGES/tesla-logo.jpg" alt="tesla-logo" height="40px"></div>
+            <!-- items in the center of nav bar -->
+            <div class="nav-center-items">
+                <span class="models"> Model 5</span>
+                <span class="models"> Model 3</span>
+                <span class="models"> Model X</span>
+                <span class="models"> Model Y</span>
+                <span class="models"> Model 5</span>
+                <span class="models"> Model 5</span>
+            </div>
+            <!-- items at the right part in the nav bar -->
+            <div class="nav-right-items">
+                <span class="r-items"> Shop</span>
+                <span class="r-items"> Account</span>
+                <span class="r-items"> Menu</span>
+            </div>
+        </div>
+        <!-- main container -->
+        <div class="main-container">
+            <div class="model-3">
+                <span class="model-3-font">Model 3</span>
+                <span class="order"> Order Online for Touchless Delivery</span>
+            </div>
+            <!-- buttons -->
+            <div class="bottons">
+                <button class="custom-order"> Custom Order</button>
+                <button class="existing-inventory"> Existing Inventory</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

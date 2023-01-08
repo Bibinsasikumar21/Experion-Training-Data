@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" onfocus="executeBox(event)" name="textbox" id="textbox"> -->
+    <!-- <input type="button" value="sign in" onclick = "executeButton(event)""> -->
+    <input type="text" id="target" onkeyup="executeEvent(event)">
+    <h1 id="result"></h1>
+    <div id="div1" style="height: 30px; background-color: aqua;" ></div>
+    <input type="range" name="range1" id="range1" min="10" max="100" value="50" onchange="executeEvent2(event)">
+    <script>
+        // function executeBox(e){
+        //     console.log(e);
+        // }
+        // function executeButton(e1){
+        //     console.log(e1);
+        // }
+        // const res = document.getElementById('result');
+        // function executeEvent(e2){
+        //     res.innerText = e2.target.value;
+        // }
+
+        const btn = document.getElementById('div1');
+        function executeEvent2(e3){
+            btn.style.width = `${e3.target.value}px`;
+        }
+
+
+        
+    </script>
+
+
+    <button>click me</button>
+    <button>click me</button>
+    <div>
+        <button>click me</button>
+        <button class="btn">click me</button>
+        <button class="btn">click me</button>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('div .btn');
+        buttons.foreach(btn => {
+            btn.style.backgroundColor = 'teal';
+        })
+    </script>
+    <hr>
+
+<!-- ********************************* -->
+<button>click me</button>
+<button>click me</button>
+<button>click me</button>
+<button>click me</button>
+<button>click me</button>
+
+<script>
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', (e) =>{
+            e.target.innerText = 'clicked';
+        });
+    })
+
+    // ******************************
+</script>
+</body>
+</html>

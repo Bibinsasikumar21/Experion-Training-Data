@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var tag = document.createElement('h1');
+        // tag.innerText = 'H1 Tag';
+        // document.body.appendChild(tag);
+    </script>
+    <div>
+    <h1 id="target"> Main heading</h1>
+    <p>paragraph 1</p>
+
+    </div>
+
+    <script>
+        const target = document.querySelector('#target');
+        console.log(target.parentElement);
+    </script>
+
+
+<!-- *****************JSON stringify******************* -->
+<script>
+    const employee1 = {
+        name: 'mr. abc',
+        age: 20,
+        designation: 'Developer',
+        salary: '25000'
+    };
+
+    const data = JSON.stringify(employee1);
+    console.log(data);
+    document.write(data);
+
+
+    const employee2 = JSON.parse(data);
+    console.log(employee2);
+</script>
+    
+    <!-- ************************************************* -->
+     
+
+<table>
+    <thead><tr>
+        <th> Name</th>
+        <th> Email</th>
+        <th>Action</th>
+    </tr></thead>
+    <tbody id="content">
+    
+</tbody>
+</table>
+
+
+<script>
+    const users = [
+    {
+        name: 'User 1',
+        email: 'user1@gmail.com'
+    },
+    {
+        name: 'user 2',
+        email: 'user2@gmail.com'
+    }];
+
+
+    const target1 = document.getElementById('content');
+    users.forEach(user => {
+            const row = (`<tr> 
+            <td> ${user.name}</td>
+            <td> ${user.email}</td>
+            <td> <button onclick = deleteRow(event) "> Delete </button></td>
+            </tr>`);
+            target1.innerHTML += row;
+        })
+
+    function deleteRow(a){ 
+        
+       a.target.parentElement.parentElement.remove();   
+    }
+
+
+    
+</script>
+</body>
+</html>
+
+

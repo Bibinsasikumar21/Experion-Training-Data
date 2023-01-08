@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab-Management-System</title>
+    <link rel="stylesheet" href="Login-Page.css">
+    <style>
+    body{
+        margin: 0;
+        padding: 0; 
+        box-sizing: border-box;
+        font-family: poppins,sans-serif; 
+        background:url("../IMAGES/istockphoto-1397393274-170667a.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
+    }
+    .container{
+        display: flex;
+        margin-top: 100px;
+        justify-content: center;
+    }
+    
+    .loginBox{
+        width: 30%;
+        height: 16rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 2rem;
+    }
+    
+    .loginBox label{
+        color: rgba(239, 244, 245, 0.994);
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+    }
+    
+    .loginBox input{
+        margin-bottom: 5px;
+        width: 100%;
+        height: 1.5rem;
+        padding: 0 1rem;
+        border-radius: 5px;
+        border: 0;
+        outline: 0;
+        background-color: rgb(25, 3, 3);
+        color: rgb(248, 244, 244);
+    }
+    .loginBox input::placeholder{
+        color: #92c9eb;
+    }
+    
+    .loginBox input:focus{
+        background-image: url(IMAGES\istockphoto-1194075911-170667a.JPG);
+        border: 1px solid #ff004f;
+    
+    }
+    
+    .buttonHolder{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .buttonHolder input{
+    
+        color: #fafaf7;
+        width: 7rem;
+        height: 2rem;
+        border-radius: 5px;
+        border: 0;
+        outline: 0;
+        transition: .1s;
+        cursor: pointer;
+    
+    }
+    
+    .buttonHolder input:active{
+        background-color: #4ec95e;
+        color: rgb(41, 94, 158);
+    }
+.image
+{
+    height: 120px;
+}
+</style>
+</head>
+<body >
+    <main class="container">
+        <div class="loginBox">
+            <label for="Username">Username</label>
+            <input type="text" name="Username" placeholder="Enter Username">
+            <label for="Password">Password</label>
+            <input type="Password" name="Password" placeholder="Enter Password">
+            <div class="buttonHolder">
+                <input type="submit" value="Signin">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Action</th>
+
+            </tr>
+            <tbody id="t-body">
+
+            </tbody>
+        </thead>
+    </table>
+
+    <script>
+        const employee = [{
+            name: "Bibin",
+            designation: "Trainee",
+            age: 22
+        },
+        {
+            name: "Athul",
+            designation: "Trainee",
+            age: 21
+        },
+        {
+            name: "Gokul",
+            designation: "Trainee",
+            age: 23
+        }];
+
+        const target2 = document.getElementById('t-body');
+        employee.forEach(emp => {
+            const row = (`<tr>
+                          <td>${emp.name}</td>
+                          <td>${emp.designation}</td>
+                          <td>${emp.age}</td>
+                          <td> <button> Delete </button> </td>
+                          </tr>`);
+                          target2.innerHTML += row;
+        });
+
+        
+    </script>
+</body>
+</html>
