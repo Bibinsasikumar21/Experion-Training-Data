@@ -1,0 +1,10 @@
+-------Testing----------
+	modes of testing: Manual and Automation Testing
+-unit testing
+-integration testing
+-regression testing
+-QA and UA: 
+-smoke testing
+-system test
+-functional
+-happy path

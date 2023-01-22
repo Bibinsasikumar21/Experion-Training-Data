@@ -1,0 +1,155 @@
+<!-- Accept 10 flight fares in decimal format intoan array(15 min)
+a.Print ascending order
+b.Print descending order
+c.Input a fare and search in array and display
+d.Print the max and min fares
+e.Print duplicate elements -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 30px;
+            border-radius: 5px;
+            color: rgb(17, 5, 6);
+            background-color: rgb(16, 188, 194);
+            box-shadow: 5px 5px 5px;
+            
+        }
+    </style>
+
+</head>
+
+<body>
+    <button onclick="printAscending()">Ascending</button>
+    <button onclick="printDescending()">Descending</button>
+    <button onclick="search()">Search Fare</button>
+    <button onclick="printMaxMin()">Maximum and Minimum</button>
+    <button onclick="printDuplicateValues()">Duplicate</button>
+    <table>
+        <tr>
+            <th id="heading"></th>
+        </tr>
+
+        <tbody id="body1"></tbody>
+
+    </table>
+    <script>
+        let data = [4800, 1500, 2000, 3100, 5000, 2500, 4200, 2000, 5000, 2500];
+        let len = data.length;
+
+        // print fare in ascending order
+
+        function printAscending() {
+            let th = document.getElementById("heading");
+            th.innerHTML = `Fare in ascending order`;
+            for (let i = 0; i < len - 1; i++) {
+                for (let j = 0; j < len - i - 1; j++) {
+                    if (data[j] > data[j + 1]) {
+                        temp = data[j];
+                        data[j] = data[j + 1];
+                        data[j + 1] = temp;
+                    }
+                }
+
+            }
+            for (let i = 0; i < len; i++) {
+                let row = `<tr><td> ${data[i]} </td></tr>`;
+                document.getElementById("body1").innerHTML += row;
+            }
+        }
+        // ************************************************
+        // print fare in descending order
+        function printDescending() {
+            let th = document.getElementById("heading");
+            th.innerHTML = `Fare in Descending order`;
+            for (let i = 0; i < len - 1; i++) {
+                for (let j = 0; j < len - i - 1; j++) {
+                    if (data[j] > data[j + 1]) {
+                        temp = data[j];
+                        data[j] = data[j + 1];
+                        data[j + 1] = temp;
+                    }
+                }
+
+            }
+
+            for (let i = len - 1; i > 0; i--) {
+                let row = `<tr><td> ${data[i]} </td></tr>`;
+                document.getElementById("body1").innerHTML += row;
+            }
+        }
+        // ***********************************
+        // input a fare and search in the array
+        function search() {
+            let key = prompt("Enter a fare amount to search");
+            let count = 0;
+            data.forEach(elem => {
+                count++;
+                if (elem == key) {
+                    let th = document.getElementById("heading");
+                    th.innerHTML = `${key} is found at location ${count} `;
+                }
+                else{
+                    let th = document.getElementById("heading");
+                    th.innerHTML = `${key} is not found  `;
+                }
+            })
+        }
+        // ***************************************
+        // print max and min fare in the array
+        function printMaxMin() {
+            let max = data[0];
+            let min = data[0];
+            for (let i = 0; i < len; i++) {
+                if (min > data[i]) {
+                    min = data[i];
+                }
+                if (max < data[i]) {
+                    max = data[i];
+                }
+            }
+            let th = document.getElementById("heading");
+            th.innerHTML = `Maximum and Minimum Fare`;
+        
+            let row1 = `<tr><td> ${max} is the Maximum Fare </td></tr>`;
+            let row2 = `<tr><td> ${min} is the Minimum Fare </td></tr>`;
+            document.getElementById("body1").innerHTML += row1;
+            document.getElementById("body1").innerHTML += row2;
+        }
+            
+            //***************************************************
+            // print duplicate fare amount in the array
+            function printDuplicateValues(){
+                let repeatVal = [];
+                let k = 0;
+                for(let j = 0; j<len; j++){
+                    for(let i=j+1;i<len;i++){
+                        
+                        if(data[j] == data[i]){
+                            repeatVal[k++] = data[j];
+                        }
+                    }
+                }
+                
+                let th = document.getElementById("heading");
+                th.innerHTML = `Duplicate values `;
+                for(let m=0; m< repeatVal.length;m++){
+                    let row = `<tr><td> ${repeatVal[m]} </td></tr>`;
+                   document.getElementById("body1").innerHTML += row;
+                }
+                 
+            } 
+
+        
+        
+    </script>
+</body>
+
+</html>
