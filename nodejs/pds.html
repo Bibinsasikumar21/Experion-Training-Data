@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1></h1>
+ 
+    <script>
+        //  let message = document.querySelector("h1")
+        //     let isavailable = true;
+        // let grocery = {
+        //     chicken: 3,
+        //     beef: 5,
+        //     veg: 10,
+        //     price: {
+        //         chicken: [1, 250],
+        //         beef: [1, 350],
+        //         veg: [1, 149],
+        //     },
+        //     ck_time: {
+        //         chicken: 7,
+        //         beef: 5,
+        //         veg: 2
+        //     }
+        // }
+
+        // function placeOrder() {
+        //    return new Promise(function (res,rej){
+        //     setTimeout(function () {
+             
+        //             if (grocery.chicken > 0) {
+        //                 isavailable = true;
+        //             }
+        //             if(isavailable){
+        //                 setTimeout(function (){
+        //                    res( `order ready : chicken pizza
+        //                          price is : ${grocery.price.chicken[1]} rs`);
+        //                 },`${grocery.ck_time.chicken}000`);
+        //             }
+
+                
+        //     })
+        // })
+        // }
+     
+    
+
+        
+    
+        
+       
+        // placeOrder().then(function (err){
+           
+        //     return ["name : nimisha",err]
+        // }).then(function (err){
+        //     message.innerText = `${err[0]} \n ${err[1]}`
+        // })
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+
+    </script>
+</body>
+
+</html>
