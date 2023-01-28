@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: antiquewhite;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        ;
+        align-items: center;
+    }
+
+    .container {
+        background-color: rgb(126, 183, 158);
+        height: 30vh;
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid rgb(15, 15, 16);
+    }
+
+    .result {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        background-color: rgb(135, 211, 208);
+        border: 3px solid rgb(15, 15, 16);
+        height: 30vh;
+        width: 50vw;
+        padding-top: 20px;
+    }
+
+    button {
+        background-color: rgb(9, 164, 32);
+        height: 30px;
+        width: 120px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Enter Name</label>
+                </td>
+                <td>
+                    <input type="text" name="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="age ">Enter Age</label>
+                </td>
+                <td>
+                    <input type="number" name="age" id="age">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button onclick="addValues()">Submit</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button onclick="showDetails()">Show details</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="result">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+
+    let nameArray = [];
+    let ageArray = [];
+    let category = [];
+    let index = 0;
+    let pos = 0;
+    let tBody = document.getElementById(`table-body`);
+    function addValues() {
+        let name = document.getElementById('name').value;
+        let age = document.getElementById('age').value;
+        nameArray[index] = name;
+        ageArray[index] = age;
+        index++;
+        categorize();
+    }
+    function categorize() {
+        if (ageArray[pos] >= 0 && ageArray[pos] <= 10) {
+            category[pos] = `Kid`;
+            console.log('kid');
+            pos++;
+        }
+        else if (ageArray[pos] > 10 && ageArray[pos] <= 30) {
+            category[pos] = `Youth`;
+            pos++;
+        }
+        else if (ageArray[pos] > 30 && ageArray[pos] < 60) {
+            category[pos] = `Adult`;
+            pos++;
+        }
+        else if (ageArray[pos] > 60) {
+            category[pos] = `Older`;
+            pos++;
+        }
+
+
+    }
+
+    function showDetails() {
+        for (let loc = 0; loc <= nameArray.length - 1; loc++) {
+            tBody.innerHTML += `<tr><td>${nameArray[loc]}</td><td>${category[loc]} </td></tr>`;
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 50px solid rgb(19, 91, 130);
+            border-radius: 9px;
+            padding: 30px;
+            margin: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .input-data button {
+            background-color: #5b0d85;
+            color: white;
+            column-span: all4;
+        }
+        button:hover {
+            background-color: rgb(160, 117, 8);
+        }
+        .result{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h3{
+            font-family:cursive;
+            text-shadow: 5px 5px 5px;
+            color: rgb(19, 106, 152);
+        }
+        textarea{
+            color: red;
+        }
+    </style>
+</head>
+<div class="container">
+    <div class="input-data">
+        <h3>Know Your Frequent Flyer Points</h3>
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Enter name</label>
+                </td>
+                <td>
+                    <input type="text" name="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="miles">Enter Miles travelled</label>
+                </td>
+                <td>
+                    <input type="number" name="miles" id="miles">
+            </tr>
+            </td>
+            <tr>
+                <td><button class="button" onclick="calculatePoints()">Submit</button></td>
+            </tr>
+        </table>
+        <div class="result">
+            <textarea name="text-area" id="text-area" cols="37" rows="4"></textarea>
+        </div>
+    </div>
+
+</div>
+
+<body>
+    <script>
+        let flyerPoint = 0;
+        let result = document.querySelector('textarea');  
+        function calculatePoints() {
+            const miles = document.getElementById('miles').value;
+            let name = document.getElementById('name').value;
+            if (miles > 10000 && miles <= 20000) {
+                flyerPoint = 10;
+            } else if (miles > 20000 && miles <= 50000) {
+                flyerPoint = 20;
+            } else if (miles > 50000 && miles <= 100000) {
+                flyerPoint = 30;
+            } else if ( miles > 100000){
+                flyerPoint = 50;
+            } else{
+                flyerPoint = 0;
+            }
+
+            if(flyerPoint > 0){
+            result.innerHTML = `Congratulations ${name}! you have awarded ${flyerPoint} frequent flyer points `;
+        }
+        else{
+            result.innerHTML = `${name}! you have  ${flyerPoint} frequent flyer points `;
+
+        }
+        }
+
+    </script>
+</body>
+
+</html>

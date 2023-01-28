@@ -1,0 +1,133 @@
+<!-- Accept the flight fares in decimal into an array. Accept destinations in to another array.
+Accept the nth number from keyboard and display that destination and fare (15 min) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 20px solid rgb(2, 52, 53);
+            border-radius: 9px;
+            padding: 30px;
+            margin: 40px;
+            height: 50vh;
+            width: 40vw;
+            ;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .input-data button {
+            background-color: #5b64b9;
+            color: white;
+            column-span: all4;
+        }
+
+        button:hover {
+            background-color: rgb(28, 103, 135);
+        }
+
+        .result {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            font-family: cursive;
+            text-shadow: 5px 5px 5px;
+            color: rgb(19, 106, 152);
+        }
+
+        textarea {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-data">
+            <h2>Destination and Fare</h2>
+            <table>
+                <tr>
+                    <td>
+                        <label for="fare">Enter FLight Fare</label>
+                    </td>
+                    <td>
+                        <input type="number" name="fare" id="fare">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="destination">Enter Destination</label>
+                    </td>
+                    <td>
+                        <input type="text" name="destination" id="destination">
+                        </td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td><button class="button" onclick="addElements()">Add to Array</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="get-number">Enter a Number</label>
+                    </td>
+                    <td>
+                        <input type="number" name="get-number" id="get-number">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="button" onclick="showDetails()">Show Details</button></td>
+
+                </tr>
+
+            </table>
+            <div class="result">
+                <textarea name="text-area" id="text-area" cols="37" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    let tArea = document.querySelector('textarea');
+    let fareArray = [];
+    let pos = 0;
+    let loc = 0;
+    let destinationArray = [];
+    function addElements() {
+        let fare = document.getElementById('fare').value;
+        let destination = document.getElementById('destination').value;
+        fareArray[pos] = fare;
+        pos++;
+        destinationArray[loc] = destination;
+        loc++;
+    }
+    function showDetails() {
+        let index = document.getElementById('get-number').value;
+        if( index < fareArray.length ){
+            tArea.innerHTML = `To ${destinationArray[index]} flight fare is ${fareArray[index]} rs`;
+        } else{
+            tArea.innerHTML = `Error! Please enter correct index`;
+        }
+    }
+
+</script>
+
+</html>

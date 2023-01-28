@@ -1,62 +1,83 @@
-5.Accept flight fares in decimal format and put it in an array at even or odd positions(15 min)
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=y, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #fare-table {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-collapse: collapse;
+            width: 200%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #208293;
+            color: rgb(251, 253, 251);
+        }
+
+        tr:hover {
+            background-color: rgb(241, 202, 187);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input-data {
+            margin: 30px;
+            padding: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <select name="oddEven" id="oddEven">
-        <option value="odd">Odd</option>
-        <option value="even">Even</option>
-    </select>
-    <label for="inputNumber"> Enter number</label>
-    <input type="text" id="inputNumber" name="number" placeholder="enter number">
-    <input type="button" name="btn-addNumber" onclick="addElementsArray()" value="Add number">
-    <input type="button" name="btn-printArray" onclick="printArray()" value =  "print Array">
-
-
-    
-
-
+    <div class="container">
+        <div class="input-data">
+            <label for="inputNumber"> Enter number</label>
+            <input type="text" id="inputNumber" name="number" placeholder="enter number">
+            <input type="button" name="btn-addNumber" onclick="addElementsArray()" value="Add number">
+            <input type="button" name="btn-printArray" onclick="printArray()" value="print Array">
+        </div>
+        <div class="tab-container">
+            <table id="fare-table">
+                <thead>
+                    <th>Fare</th>
+                    <th>Position</th>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    </div>
     <script>
-        let i = 1, j = 0;
-        let m = 0;
-        let nameArray = [];
-        let oddEven = document.querySelector("select").value;
-
+        let odd = 1, even = 0;
+        let fareArray = [];
         function addElementsArray() {
-            if(oddEven == "odd"){
-                nameArray[i] = document.getElementById('inputNumber').value;
-                nameArray[i+1] = '0';
-                i++;
-                
+            const fare = document.getElementById('inputNumber').value;
+            if (fare % 2 == 0) {
+                fareArray[even] = fare;
+                even += 2;
+            } else {
+                fareArray[odd] = fare;
+                odd += 2;
             }
-            else{
-                
-                let name = document.getElementById('inputNumber').value;
-                nameArray[m] = name;
-                m++;
-                nameArray[m]=0;
-
-            }
-            
-            
         }
-
-        function printArray(){
-            document.write(nameArray);
-            console.log(nameArray);
-            }
-                
-
-        
-
-
+        function printArray() {
+            const row = document.getElementById('table-body');
+            fareArray.forEach((element, index) => {
+                row.innerHTML += `<tr><td> ${element} </td><td> ${index} </td> <tr>`;
+            });
+        }
     </script>
 </body>
 
