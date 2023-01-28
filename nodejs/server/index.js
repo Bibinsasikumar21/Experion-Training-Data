@@ -1,47 +1,19 @@
-const fs = require('fs');
-const Event = require('events');
-const os = require('os')
-const password = require('./password')
+const express = require('express')
+const path = require('path')
+const app = express();
 
-// globals
-console.log(__filename)
-console.log(__dirname)
-// require
-// module
-module.exports.name = "akshaya"
-console.log(module)
-
-
-// builtin modules
-
-
-
-// http,fs,os,path,events
-
-// fs
-let data = fs.readFileSync('./password.js',{encoding:'utf-8',flag:'r'});
-console.log(data)
-
-let Fs = {
-readFileSync:function (filename,obj){
-    console.log(`filename is ${filename}`)
-    console.log(obj.encoding,obj.flag)
-}
-}
-
-Fs.readFileSync('password.js',{encoding:'utf-8',flag:'r'})
-fs.readFile('./password.js',{encoding:"utf-8",flag:'r'},(err,data)=>{
-    
-    console.log("async fs",data)
+app.get('/',function (req,res){
+    res.status(200)
+    res.send("<h1>This is the homepage </h1>")
 })
-
-
-const events = new Event();
-events.on('connected',function (){
-    console.log('connected successfully')
-    })
-events.on('connected',function (){
-console.log('connected successfully again')
+app.get("/about",function (req,res){
+    res.status(200)
+    res.send("<h1>This is the about page</h1>")
 })
-
-events.emit('connected');   
+app.get("/login",function (req,res){
+    res.status(200)
+    res.sendFile(path.join(__dirname,"index.html"))
+})
+app.listen(1000,function(){
+    console.log("Server has started successfully at port 1000");
+})

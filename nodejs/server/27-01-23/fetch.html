@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        
+        let jsonload= {name:"nimisha"}
+        fetch('http://localhost:5000/friends').then((res)=>{
+       return res.json()
+        }).then((res)=>{    
+            
+            
+            let template = ``
+            let ul =  document.querySelector('ul')
+            res.payload.forEach((i)=>{
+                template = template + `<li>${i.name}</li>`
+            })
+            ul.innerHTML = template;
+        })
+
+        
+
+setTimeout(()=>{
+
+
+        fetch('http://localhost:5000/friends', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(jsonload),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+},2000)
+    </script>
+</body>
+</html>
