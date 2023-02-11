@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="flight(event)" id="onclick" value="start">Start</button>
+    <table>
+        <tbody id="tab-body"></tbody>
+    </table>
+    <script>
+        flight_no =[];
+        let tbody = document.getElementById('tab-body')
+        function flight(e){
+            for (let i = 0; i >=0 ; i++) {
+            let user = prompt('Please enter flight number or do you want to quit: y/n');
+            
+                if (user == 'y') {
+                    break;
+                } else{
+                    flight_no.push(user);
+                }
+                console.log(flight_no);
+            }
+        }
+    </script>
+</body>
+</html>
